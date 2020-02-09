@@ -2,7 +2,7 @@
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: ['./src/app.scss', './src/app.js'],
+  entry: ['./src/app.scss', './src/app.js', './index.html'],
   output: {
     filename: 'bundle.js',
   },
@@ -41,6 +41,10 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
       },
     ],
   }
