@@ -1,4 +1,4 @@
-$primary: #F7D134;
+$primary: #41692b;
 $secondary: #96aecd;
 
 $white: #fefefe;
@@ -11,8 +11,6 @@ $section-space: 3rem;
 
 $global-border-radius: 5px;
 
-$header-font: brandon-grotesque, sans-serif;
-
 $breakpoints: (
   small: 0,
   medium: 640px,
@@ -22,61 +20,31 @@ $breakpoints: (
 );
 
 body {
-  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background: $primary;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font;
+  font-weight: normal; // browser reset
 }
-
-h1 {
-  color: black;
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: black;
-  margin-top: 0;
-  font-size: 3.052em;
-  text-align: center;
-
-  @media (min-width: map-get($breakpoints, medium)) {
-    text-align: left;
-  }
-}
-
-h2 {font-size: 2.441em;}
-
-h3 {font-size: 1.953em;}
-
-h4 {font-size: 1.563em;}
-
-h5 {font-size: 1.25em;}
-
-small, .text_small {font-size: 0.8em;}
 
 a {
-  color: black;
+  color: $primary;
+  text-decoration: none;
 }
 
 button {
   background: $primary;
-  // color: $white;
-  font-size: 1.25rem;
+  color: $white;
   padding: $global-padding;
-  border: 2px solid black;
+  border: none;
   border-radius: $global-border-radius;
-  font-family: $header-font;
+  font-family: serif;
 }
 
 ul {
   list-style: none; // browser reset
   padding-left: 0; // browser reset
-}
-
-li {
-  // font-family: $header-font; // nope this goes overkill
 }
 
 .screen-reader {
@@ -91,10 +59,6 @@ header {
   margin-right: auto;
   margin-bottom: $global-margin;
   padding: $global-padding;
-}
-
-header h1 a {
-  text-decoration: none;
 }
 
 main {
@@ -130,7 +94,6 @@ main {
     img {
       max-width: 100%; // browser reset
       border-radius: $global-border-radius;
-      filter: grayscale(100%);
     }
   }
 
@@ -156,12 +119,11 @@ main {
   .main-background {
     grid-row: 3;
     grid-column: 1;
-    background: $white;
+    background: $secondary;
     z-index: -1;
     border-radius: $global-border-radius;
     margin: $global-margin;
     margin-bottom: 0;
-    border: 2px solid black;
 
     @media (min-width: map-get($breakpoints, medium)) {
       grid-row: 2;
@@ -176,7 +138,8 @@ main {
   margin-left: $global-margin;
 }
 
-#menu_small {
+.off-canvas-menu {
+  background: $light-gray;
   padding: $global-padding;
   border-radius: $global-border-radius;
 
@@ -186,13 +149,12 @@ main {
     margin: 0;
 
     li {
-      border: 2px solid black;
+      background: $primary;
       border-radius: $global-border-radius;
       margin-bottom: $global-margin;
-      font-weight: bold;
 
       a {
-        color: black;
+        color: $white;
         width: 100%;
         padding-top: $global-padding;
         padding-bottom: $global-padding;
@@ -235,7 +197,6 @@ main {
   img {
     max-width: 100%;
     transition-duration: 2000ms;
-    filter: grayscale(100%);
   }
 }
 
@@ -246,17 +207,7 @@ main {
 
   img {
     border-radius: $global-border-radius;
-    filter: grayscale(0);
   }
-}
-
-#gallery img {
-  clip-path: circle(39% at center); // trial and error number
-
-}
-
-#gallery img:hover {
-  clip-path: circle(71% at center); // trial and error number
 }
 
 
@@ -312,12 +263,12 @@ main {
     }
 
     > .video-area-background {
-      // background: $light-gray;
+      background: $light-gray;
       border-radius: $global-border-radius;
       z-index: -1;
       grid-row: 2/4;
       grid-column: 1;
-      border: 2px solid black;
+      border-bottom: 2px solid $secondary;
  
       @media (min-width: map-get($breakpoints, medium)) {
         grid-row: 2;
@@ -340,25 +291,9 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: flex-end;
 
   >li {
     margin-bottom: $section-space;
-    text-align: center;
-    font-weight: bold;
-
-    svg {
-      width: 10rem;
-    }
-  }
-}
-
-.sponsor-stack {
-  display: flex;
-  flex-direction: column;
-
-  > svg {
-    margin-bottom: $global-margin;
   }
 }
 
@@ -382,30 +317,13 @@ footer {
   }
 }
 
-.footer-social ul {
-  display: flex;
-  svg {
-    width: 6rem;
-    margin-right: $global-margin;
-  }
-}
-
-footer nav li {
+footer > nav {
+  background-color: $light-gray;
   border-radius: $global-border-radius;
   padding: $global-padding;
-  border: 2px solid black;
-  margin-bottom: $global-margin;
-  font-weight: bold;
+  border-bottom: 2px solid $secondary;
 
-  a {
-    text-decoration: none;
+  @media (min-width: map-get($breakpoints, medium)) {
+    margin: $global-margin // line up with the video boxes above
   }
-}
-
-.active {
-	display: inline;
-}
-
-.inactive {
-	display: none;
 }
