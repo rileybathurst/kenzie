@@ -1,14 +1,16 @@
 # Kenzie
 
-Port from a wordpress base built on [Flaxen](https://github.com/rileybathurst/flaxen.git)
+Bright sunshine
 
 ## Built on Stay Gold
 
-A base webpack setup build to my needs as much as possible from [webpack.js.org](https://webpack.js.org/guides/getting-started/) and [Material Design](https://material.io/develop/web/docs/getting-started/)
-
-## Terminal
+A webpack setup [Stay-Gold](https://github.com/rileybathurst/stay-gold.git)
 
 ```bash
 npm start
 npm run build
 ```
+
+### Push live
+
+The main directory and the dist are built on seperate git repositories
