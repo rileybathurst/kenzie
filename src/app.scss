@@ -11,7 +11,7 @@ $section-space: 3rem;
 
 $global-border-radius: 5px;
 
-$header-font: brandon-grotesque, sans-serif;
+$header-font: 'brandon-grotesque', sans-serif;
 
 $breakpoints: (
   small: 0,
@@ -38,16 +38,11 @@ p {
 }
 
 h1 {
-  color: black;
+  // color: black;
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
   font-size: 3.052em;
-  text-align: center;
-
-  @media (min-width: map-get($breakpoints, medium)) {
-    text-align: left;
-  }
 }
 
 h2 {font-size: 2.441em;}
@@ -100,10 +95,18 @@ header {
   // margin-bottom: $global-margin;
   padding: $global-padding;
   padding-bottom: 0;
-}
 
-header h1 a {
-  text-decoration: none;
+  h1 {
+  text-align: center;
+
+    @media (min-width: map-get($breakpoints, medium)) {
+      text-align: left;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 main {
@@ -157,9 +160,9 @@ main {
       margin-bottom: $section-space;
     }
 
-    li {
+    /* li {
       // margin-bottom: $global-margin/2;
-    }
+    } */
   }
 
   .main-background {
@@ -246,18 +249,9 @@ main {
     max-width: 100%;
     transition-duration: 2000ms;
     filter: grayscale(100%);
-  }
-
-  caption {
-    text-align: center;
+    clip-path: circle(39% at center); // trial and error number
   }
 }
-
-#gallery img {
-  clip-path: circle(39% at center); // trial and error number
-
-}
-
 
 #gallery img:hover {
   // scale: 1.2;
