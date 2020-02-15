@@ -1,8 +1,7 @@
-// const path = require('path');
 const autoprefixer = require('autoprefixer');
 
-module.exports = {
-  entry: ['./src/app.scss', './src/app.js', './index.html'],
+module.exports = [{
+  entry: ['./src/app.scss', './src/app.js'],
   output: {
     filename: 'bundle.js',
   },
@@ -22,30 +21,26 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-               plugins: () => [autoprefixer()]
+              plugins: () => [autoprefixer()]
             }
           },
           {
-            loader: 'sass-loader'
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths: ['./node_modules']
+              }
+            }
           },
         ]
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ]
-          }
-        }
-      },
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
-    ],
-  }
-};
+        loader: 'babel-loader',
+        query: {
+          presets: ['@babel/preset-env'],
+        },
+      }
+    ]
+  },
+}];
