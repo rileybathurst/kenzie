@@ -1,7 +1,8 @@
-const autoprefixer = require('autoprefixer');
+const path = require('path');
+const glob = require('glob');
 
 module.exports = [{
-  entry: ['./src/app.scss', './src/app.js'],
+  entry: ['./app.scss', './app.js'],
   output: {
     filename: 'bundle.js',
   },
@@ -24,13 +25,18 @@ module.exports = [{
               plugins: () => [autoprefixer()]
             }
           },
-          {
-            loader: 'sass-loader',
+          { loader: 'sass-loader',
             options: {
-              sassOptions: {
-                includePaths: ['./node_modules']
-              }
-            }
+              sourceMap: true,
+
+              // mdc-web doesn't use sass-loader's normal syntax for imports
+              // across modules, so we add all module directories containing
+              // mdc-web components to the Sass include path
+              // https://github.com/material-components/material-components-web/issues/351
+              includePaths: glob.sync(
+                path.join(__dirname, '**/node_modules/@material')
+              ).map((dir) => path.dirname(dir)),
+            },
           },
         ]
       },

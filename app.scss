@@ -1,5 +1,17 @@
 @import "@material/button/mdc-button";
 
+button {
+  @include mdc-button-ink-color(black)
+}
+
+.mdc-button:not(:disabled) {
+  color: black;
+}
+
+.mdc-button--outlined:not(:disabled) {
+  border: 2px solid black;
+}
+
 // -------------
 
 $primary: #F7D134;
