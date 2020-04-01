@@ -74,6 +74,11 @@ button {
   font-family: $header-font;
 }
 
+button:hover {
+  background: $primary; // this should be slightly darker I just dont have access to it right now
+  // background: 
+}
+
 ul {
   list-style: none; // browser reset
   padding-left: 0; // browser reset
@@ -81,6 +86,10 @@ ul {
 
 /* li {
   // font-family: $header-font; // nope this goes overkill
+} */
+
+/* quote {
+
 } */
 
 .screen-reader {
@@ -150,15 +159,16 @@ main {
   .main-content {
     grid-row: 3;
     grid-column: 1;
-    margin: $global-margin;
+    margin: $global-margin; // this matches the main-background
     padding: $global-padding;
+
 
     @media (min-width: map-get($breakpoints, medium)) {
       grid-row: 2;
       grid-column: 2;
-      margin: 0;
-      margin-right: $global-margin;
-      margin-bottom: $section-space;
+      // margin-bottom: $section-space;
+      padding: $global-padding*2;
+      padding-left: 0;
     }
 
     /* li {
@@ -179,8 +189,8 @@ main {
     @media (min-width: map-get($breakpoints, medium)) {
       grid-row: 2;
       grid-column: 1/3;
-      padding-top: $global-padding;
-      padding-bottom: $global-padding;
+      // padding-top: $global-padding;
+      // padding-bottom: $global-padding;
     }
   }
 }
@@ -435,12 +445,15 @@ footer nav li {
 }
 
 .inactive {
-	display: none;
+  display: none;
+  // opacity: 0;
 }
 
 .snowledge:hover {
   fill: #009f9c; // Im not sure about this I might keep it something thats more in the theme
 }
+
+// Animation
 
 button {
   overflow: hidden;
