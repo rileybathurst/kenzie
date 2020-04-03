@@ -21,6 +21,8 @@ $breakpoints: (
   xxlarge: 1440px,
 );
 
+$global-transition: 0.5s;
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -68,6 +70,11 @@ a:hover {
   text-decoration: line-through;
 }
 
+a:hover svg {
+  fill: $white;
+  transition: $global-transition;
+}
+
 button {
   position: relative;
   background: $primary;
@@ -77,11 +84,12 @@ button {
   border: 2px solid black;
   border-radius: $global-border-radius;
   font-family: $header-font;
+  transition: $global-transition;
 }
 
 button:hover {
-  background: $primary; // this should be slightly darker I just dont have access to it right now
-  // background: 
+  background: darken( $primary, 33% );
+  color: $white;
 }
 
 ul {
@@ -226,6 +234,12 @@ main {
         padding-bottom: $global-padding;
         display: block;
         text-align: center;
+      }
+
+      a:hover {
+        text-decoration: none;
+        background: darken( $primary, 33% );
+        color: $white;
       }
     }
 
@@ -433,16 +447,21 @@ footer {
   }
 }
 
-footer nav li {
+footer nav li a {
   border-radius: $global-border-radius;
   padding: $global-padding;
   border: 2px solid black;
   margin-bottom: $global-margin;
   font-weight: bold;
+  text-decoration: none;
+  display: block;
+  transition: 0.5s;
+}
 
-  a {
-    text-decoration: none;
-  }
+footer nav li a:hover {
+  text-decoration: none;
+  background: darken( $primary, 33% );
+  color: $white;
 }
 
 .active {
@@ -452,6 +471,10 @@ footer nav li {
 .inactive {
   display: none;
   // opacity: 0;
+}
+
+.snowledge {
+  transition: $global-transition;
 }
 
 .snowledge:hover {
