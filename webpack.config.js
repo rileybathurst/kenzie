@@ -1,46 +1,40 @@
-const autoprefixer = require('autoprefixer');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: ['./app.scss', './app.js'],
+  mode: "development",
+  entry: "./src/app.js",
   output: {
-    filename: 'bundle.js',
+    filename: "[name]bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./dist",
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Output Management",
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'bundle.css',
-            },
-          },
-          { loader: 'extract-loader' },
-          { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-               plugins: () => [autoprefixer()]
-            }
-          },
-          {
-            loader: 'sass-loader'
-          },
-        ]
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ]
-          }
-        }
+        test: /\.html$/i,
+        loader: 'html-loader',
       },
     ],
-  }
+  },
 };

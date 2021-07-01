@@ -1,4 +1,4 @@
-$primary: #F7D134;
+$primary: #f7d134;
 $secondary: #96aecd;
 
 $white: #fefefe;
@@ -11,7 +11,7 @@ $section-space: 3rem;
 
 $global-border-radius: 5px;
 
-$header-font: 'brandon-grotesque', sans-serif;
+$header-font: "brandon-grotesque", sans-serif;
 
 $breakpoints: (
   small: 0,
@@ -24,13 +24,18 @@ $breakpoints: (
 $global-transition: 0.5s;
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   background: $light-gray;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $header-font;
   margin-top: 0; // this might be overkill but bottom margins keep the grid easier to control
 }
@@ -47,15 +52,26 @@ h1 {
   font-size: 3.052em;
 }
 
-h2 {font-size: 2.441em;}
+h2 {
+  font-size: 2.441em;
+}
 
-h3 {font-size: 1.953em;}
+h3 {
+  font-size: 1.953em;
+}
 
-h4 {font-size: 1.563em;}
+h4 {
+  font-size: 1.563em;
+}
 
-h5 {font-size: 1.25em;}
+h5 {
+  font-size: 1.25em;
+}
 
-small, .text_small {font-size: 0.8em;}
+small,
+.text_small {
+  font-size: 0.8em;
+}
 
 blockquote {
   font-size: 1.563em;
@@ -88,7 +104,7 @@ button {
 }
 
 button:hover {
-  background: darken( $light-gray, 33% );
+  background: darken($light-gray, 33%);
   color: $white;
 }
 
@@ -120,7 +136,7 @@ header {
   padding-bottom: 0;
 
   h1 {
-  text-align: center;
+    text-align: center;
 
     @media (min-width: map-get($breakpoints, medium)) {
       text-align: left;
@@ -175,18 +191,13 @@ main {
     margin: $global-margin; // this matches the main-background
     padding: $global-padding;
 
-
     @media (min-width: map-get($breakpoints, medium)) {
       grid-row: 2;
       grid-column: 2;
       // margin-bottom: $section-space;
-      padding: $global-padding*2;
+      padding: $global-padding * 2;
       padding-left: 0;
     }
-
-    /* li {
-      // margin-bottom: $global-margin/2;
-    } */
   }
 
   .main-background {
@@ -238,7 +249,7 @@ main {
 
       a:hover {
         text-decoration: none;
-        background: darken( $light-gray, 33% );
+        background: darken($light-gray, 33%);
         color: $white;
       }
     }
@@ -288,12 +299,10 @@ main {
   // scale: 1.2;
   transform: scale(1.2);
   z-index: 2;
-    border-radius: $global-border-radius;
-    filter: grayscale(0);
-    clip-path: circle(71% at center); // trial and error number
+  border-radius: $global-border-radius;
+  filter: grayscale(0);
+  clip-path: circle(71% at center); // trial and error number
 }
-
-
 
 #video-edits {
   margin-bottom: $section-space;
@@ -304,7 +313,7 @@ main {
     margin-bottom: $section-space;
     max-width: 66rem; // Im not 100 on this yet
     margin: 0 auto;
-    
+
     @media (min-width: map-get($breakpoints, medium)) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -322,7 +331,8 @@ main {
       }
     }
 
-    h4, > .video-area-title {
+    h4,
+    > .video-area-title {
       grid-row: 3;
       grid-column: 1;
 
@@ -336,12 +346,12 @@ main {
     h4 {
       padding-left: $global-padding;
       padding-right: $global-padding;
-      margin-top: $global-margin/2;
+      margin-top: calc($global-margin / 2);
     }
 
     .video-area-title svg {
       width: 10rem;
-      margin-top: $global-margin/2;
+      margin-top: calc($global-margin / 2);
       padding-left: $global-padding;
       padding-right: $global-padding;
     }
@@ -366,7 +376,7 @@ main {
       grid-row: 2/5;
       grid-column: 1;
       border: 2px solid black;
- 
+
       @media (min-width: map-get($breakpoints, medium)) {
         grid-row: 2;
         grid-column: 1/3;
@@ -400,7 +410,7 @@ main {
   justify-content: space-around;
   align-items: flex-end;
 
-  >li {
+  > li {
     margin-bottom: $section-space;
     text-align: center;
     font-weight: bold;
@@ -461,12 +471,12 @@ footer nav li a {
 
 footer nav li a:hover {
   text-decoration: none;
-  background: darken( $light-gray, 33% );
+  background: darken($light-gray, 33%);
   color: $white;
 }
 
 .active {
-	display: inline;
+  display: inline;
 }
 
 .inactive {
@@ -490,7 +500,7 @@ button {
 
 .ripple {
   position: absolute;
-  background: rgba(0,0,0,.15);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 100%;
   transform: scale(0); // not really on without the animation
   // transform: scale(2); // testing
@@ -500,7 +510,7 @@ button {
   background: black;
 }
 .ripple.show {
-  animation: ripple .75s ease-out;
+  animation: ripple 0.75s ease-out;
 }
 @keyframes ripple {
   to {
