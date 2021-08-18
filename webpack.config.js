@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Output Management",
+      title: "Kenzie Morris Bathurst Athlete, Adventurer, Outdoor lover",
     }),
   ],
   module: {
