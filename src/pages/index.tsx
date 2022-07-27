@@ -2,6 +2,128 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import { StaticImage } from "gatsby-plugin-image"
 
+function CurrentIndustryPositions() {
+  // I dont know how to make this reuseable
+  // but i bet i coult set this boolean to the string
+  const [hiddenBoolean, setHiddenBoolean] = useState(true);
+
+  function handleClick() {
+    setHiddenBoolean(hiddenBoolean === false ? true : false);
+  }
+
+  return (
+    <section id="current-industry-positions accordion">
+      <h3>
+        <button
+          type="button"
+          aria-expanded={hiddenBoolean}
+          className="accordion-trigger"
+          aria-controls="sect1" id="accordion1id"
+          onClick={handleClick}
+        >
+          <span className="accordion-title">
+            Current Industry Positions
+            <span className="accordion-icon">{/* stay gold */}</span>
+          </span>
+        </button>
+      </h3>
+      <div className="section-text"
+        role="region"
+        aria-labelledby="accordion1id"
+        className={`accordion-panel`}
+        hidden={hiddenBoolean}
+      >
+        <ul>
+          <li>IFSA Freeride World Qualifier Judge</li>
+          <li>IFSA Junior Judge</li>
+          <li>Tahoe Junior Freeride Series Judge</li>
+          <li>Squaw Valley Ski Team Coach</li>
+          <li>Marketing technical representative for Gore-Tex</li>
+          <li>Hargoods Sales, Bootfitting</li>
+          <li>Snowledge App Marketing/ Team Manager</li>
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+
+function Accordion() {
+  const [ariaExpanded, setAriaExpanded] = useState('flase');
+  const [hiddenBoolean, setHiddenBoolean] = useState(false);
+
+  function handleClick() {
+    setAriaExpanded(ariaExpanded === 'true' ? 'flase' : 'true');
+    setHiddenBoolean(hiddenBoolean === true ? false : true);
+  }
+
+  return (
+    <div id="accordionGroup" className="accordion">
+      <h3>
+        <button
+          type="button"
+          aria-expanded={ariaExpanded}
+          className="accordion-trigger"
+          aria-controls="sect1" id="accordion1id"
+          onClick={handleClick}
+        >
+          <span className="accordion-title">
+            Personal Information
+            <span className="accordion-icon"></span>
+          </span>
+        </button>
+      </h3>
+      <div
+        id="sect1"
+        role="region"
+        aria-labelledby="accordion1id"
+        // className={`accordion-panel ${ariaExpanded}`}
+        className={`accordion-panel`}
+        hidden={hiddenBoolean}
+      >
+        <div>
+          one
+        </div>
+      </div>
+      <h3>
+        <button type="button" aria-expanded={ariaExpanded} className="accordion-trigger" aria-controls="sect2" id="accordion2id"
+          onClick={handleClick}
+        >
+          <span className="accordion-title">
+            Billing Address
+            <span className="accordion-icon"></span>
+          </span>
+        </button>
+      </h3>
+      <div id="sect2" role="region" aria-labelledby="accordion2id"
+        className={`accordion-panel ${ariaExpanded}`}
+        onClick={handleClick}
+      >
+        <div>
+          two
+        </div>
+      </div>
+      <h3>
+        <button type="button" aria-expanded={ariaExpanded} className="accordion-trigger" aria-controls="sect3" id="accordion3id"
+          onClick={handleClick}
+        >
+          <span className="accordion-title">
+            Shipping Address
+            <span className="accordion-icon"></span>
+          </span>
+        </button>
+      </h3>
+      <div id="sect3" role="region" aria-labelledby="accordion3id"
+        className={`accordion-panel ${ariaExpanded}`}
+      >
+        <div>
+          three
+        </div>
+      </div>
+    </div>
+  )
+}
+
 {/* <!DOCTYPE html>
 <html className="no-js" lang="en-US">
 
@@ -213,47 +335,6 @@ function Button() {
   }
 }
 
-/* function show() {
-  if (menu_small.className === "active") {
-          menu_small.className = "inactive";
-  } else {
-          menu_small.className = "active";
-  }
-
-        spa.classList.remove("show");
-
-        // const ww = document.createElement('p');
-        var xacross = event.pageX;
-        var ydown = event.pageY;
-        // console.log('ydwon = ' + ydown);
-
-        // spa.style.top = '20px';
-        // spa.style.top = ydown + 'px';
-        // spa.style.left = xacross + 'px';
-
-        // how far down the button is on the page
-        console.log(rect.top);
-
-        // height of the span including padding but not margin
-        console.log(spa.offsetHeight);
-
-        // top = click point on y minus how far down the button is minus the button height divided by 2 - minus how far the page has been scrolled
-        // var top = ydown - rect.top - spa.offsetHeight / 2 - document.body.scrollTop; // just copying the math at this point
-        var top = ydown - rect.top - spa.offsetHeight / 2 - document.body.scrollTop; // just copying the math at this point
-        // has a problem if the page is loaded further down
-        console.log(top);
-        spa.style.top = top + "px";
-
-        // var left = ((xacross - rect.left) - (spa.offsetWidth / 2)) - document.body.scrollLeft;
-        var left =
-        xacross - rect.left - spa.offsetWidth / 2 - document.body.scrollLeft; // this might just be working because its the furthest left element
-        spa.style.left = left + "px";
-
-        spa.classList.add("show");
-}
-
-        btn.onclick = show; */
-
 const IndexPage = () => {
   return (
     <>
@@ -296,20 +377,7 @@ const IndexPage = () => {
 
           <hr />
 
-          <section id="current-industry-positions">
-            <h3>Current Industry Positions</h3>
-            <div className="section-text">
-              <ul>
-                <li>IFSA Freeride World Qualifier Judge</li>
-                <li>IFSA Junior Judge</li>
-                <li>Tahoe Junior Freeride Series Judge</li>
-                <li>Squaw Valley Ski Team Coach</li>
-                <li>Marketing technical representative for Gore-Tex</li>
-                <li>Hargoods Sales, Bootfitting</li>
-                <li>Snowledge App Marketing/ Team Manager</li>
-              </ul>
-            </div>
-          </section>
+          <CurrentIndustryPositions />
 
           <hr />
 
@@ -439,6 +507,63 @@ const IndexPage = () => {
               </ul>
             </div>
           </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <Accordion />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </article>
 
         <div className="main-background">{/* stay gold */}</div>
