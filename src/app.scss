@@ -1,17 +1,27 @@
-$primary: #f7d134;
-$secondary: #96aecd;
+:root {
+  // I dont think Im using these colors
+  --dandelion: hsl(50, 87.5%, 62.5%);
+  --secondary: hsl(215, 37.5%, 75%);
 
-$white: #fefefe;
-$light-gray: #e6e6e6;
+  --global-margin: 1rem;
+  --global-padding: 1rem;
 
-$global-margin: 1rem;
-$global-padding: 1rem;
+  --section-space: 3rem;
 
-$section-space: 3rem;
+  --global-border-radius: 5px;
 
-$global-border-radius: 5px;
+  --header-font: "brandon-grotesque", sans-serif;
 
-$header-font: "brandon-grotesque", sans-serif;
+  --black-metal: hsl(0, 0%, 2.5%);
+  --black-out: hsl(0, 0%, 12.5%);
+  --raven-black: hsl(0, 0%, 25%);
+  --industrial-revolution: hsl(0, 0%, 37.5%);
+  --grey: hsl(0, 0%, 50%);
+  --cold-grey: hsl(0, 0%, 62.5%);
+  --tin-soldier: hsl(0, 0%, 75%);
+  --kingly-cloud: hsl(0, 0%, 87.5%);
+  --brilliance: hsl(0, 0%, 97.5%);
+}
 
 $breakpoints: (
   small: 0,
@@ -27,7 +37,8 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background: $light-gray;
+  background: var(--kingly-cloud);
+  margin: 0; // reset
 }
 
 h1,
@@ -36,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $header-font;
+  font-family: var(--header-font);
   margin-top: 0; // this might be overkill but bottom margins keep the grid easier to control
 }
 
@@ -45,10 +56,6 @@ p {
 }
 
 h1 {
-  // color: black;
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: black;
   font-size: 3.052em;
 }
 
@@ -79,7 +86,7 @@ blockquote {
 }
 
 a {
-  color: black;
+  color: var(--black-metal);
 }
 
 a:hover {
@@ -87,25 +94,25 @@ a:hover {
 }
 
 a:hover svg {
-  fill: $white;
+  fill: var(--brilliance);
   transition: $global-transition;
 }
 
 button {
   position: relative;
-  background: $light-gray;
-  // color: $white;
+  background: var(--kingly-cloud);
+  // color: var(--brilliance);
   font-size: 1.25rem;
-  padding: $global-padding;
-  border: 2px solid black;
-  border-radius: $global-border-radius;
-  font-family: $header-font;
+  padding: var(--global-padding);
+  border: 2px solid var(--black-metal);
+  border-radius: var(--global-border-radius);
+  font-family: var(--header-font);
   transition: $global-transition;
 }
 
 button:hover {
-  background: darken($light-gray, 33%);
-  color: $white;
+  background: var(--tin-soldier);
+  color: var(--brilliance);
 }
 
 ul {
@@ -113,30 +120,27 @@ ul {
   padding-left: 0; // browser reset
 }
 
-/* li {
-  // font-family: $header-font; // nope this goes overkill
-} */
-
-/* quote {
-
-} */
-
 .screen-reader {
   display: none; // while working on design
 }
 
 header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
-  // margin-bottom: $global-margin;
-  padding: $global-padding;
-  padding-bottom: 0;
+  z-index: 1;
+  position: relative;
 
   h1 {
     text-align: center;
+    z-index: 3;
+    position: relative;
+    background-color: var(--kingly-cloud);
+    margin-block-end: 0;
+    padding-block: 1.5rem;
 
     @media (min-width: map-get($breakpoints, medium)) {
       text-align: left;
@@ -144,58 +148,65 @@ header {
 
     a {
       text-decoration: none;
+      color: transparent;
+
+      color: var(--black-metal);
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke
+      @supports not (-webkit-text-stroke: 2px black) {
+        -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: var(--black-metal);
+      }
     }
   }
 }
 
 main {
   display: grid;
-  // grid-gap: 1rem;
-  margin-bottom: $section-space;
+  margin-bottom: var(--section-space);
 
   @media (min-width: map-get($breakpoints, medium)) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   > h2 {
-    padding-left: $global-padding;
-    padding-right: $global-padding;
+    padding-left: var(--global-padding);
+    padding-right: var(--global-padding);
 
     @media (min-width: map-get($breakpoints, medium)) {
       grid-column: 2;
     }
   }
 
-  picture {
+  .gatsby-image-wrapper {
     grid-column: 1;
-    padding-left: $global-padding;
-    padding-right: $global-padding;
+    padding-left: var(--global-padding);
+    padding-right: var(--global-padding);
 
     @media (min-width: map-get($breakpoints, medium)) {
       grid-row: 1/3;
       grid-column: 1;
+      align-self: start;
       justify-self: end;
       max-width: 22rem;
     }
 
     img {
       max-width: 100%; // browser reset
-      border-radius: $global-border-radius;
-      // filter: grayscale(100%);
+      border-radius: var(--global-border-radius);
     }
   }
 
   .main-content {
     grid-row: 3;
     grid-column: 1;
-    margin: $global-margin; // this matches the main-background
-    padding: $global-padding;
+    margin: var(--global-margin); // this matches the main-background
+    padding: var(--global-padding);
 
     @media (min-width: map-get($breakpoints, medium)) {
       grid-row: 2;
       grid-column: 2;
-      // margin-bottom: $section-space;
-      padding: $global-padding * 2;
+      padding: calc(var(--global-padding) * 2);
       padding-left: 0;
     }
   }
@@ -203,29 +214,27 @@ main {
   .main-background {
     grid-row: 3;
     grid-column: 1;
-    background: $white;
+    background: var(--brilliance);
     z-index: -1;
-    border-radius: $global-border-radius;
-    margin: $global-margin;
+    border-radius: var(--global-border-radius);
+    margin: var(--global-margin);
     margin-bottom: 0;
-    border: 2px solid black;
+    border: 2px solid var(--black-metal);
 
     @media (min-width: map-get($breakpoints, medium)) {
       grid-row: 2;
       grid-column: 1/3;
-      // padding-top: $global-padding;
-      // padding-bottom: $global-padding;
     }
   }
 }
 
 .results-sub {
-  margin-left: $global-margin;
+  margin-left: var(--global-margin);
 }
 
 #menu_small {
-  padding: $global-padding;
-  border-radius: $global-border-radius;
+  padding: var(--global-padding);
+  border-radius: var(--global-border-radius);
 
   ul {
     display: flex;
@@ -233,24 +242,27 @@ main {
     margin: 0;
 
     li {
-      border: 2px solid black;
-      border-radius: $global-border-radius;
-      margin-bottom: $global-margin;
+      border: 2px solid var(--black-metal);
+      border-radius: var(--global-border-radius);
+      margin-bottom: var(--global-margin);
       font-weight: bold;
+      background-color: var(--brilliance);
+      opacity: 0.9;
+      backdrop-filter: blur(1rem);
 
       a {
-        color: black;
+        color: var(--black-metal);
         width: 100%;
-        padding-top: $global-padding;
-        padding-bottom: $global-padding;
+        padding-top: var(--global-padding);
+        padding-bottom: var(--global-padding);
         display: block;
         text-align: center;
       }
 
       a:hover {
         text-decoration: none;
-        background: darken($light-gray, 33%);
-        color: $white;
+        background: var(--tin-soldier);
+        color: var(--brilliance);
       }
     }
 
@@ -261,9 +273,9 @@ main {
 }
 
 .header-byline {
-  background: $light-gray;
-  padding: $global-padding;
-  border-radius: $global-border-radius;
+  background: var(--kingly-cloud);
+  padding: var(--global-padding);
+  border-radius: var(--global-border-radius);
 }
 
 .header-menu {
@@ -277,40 +289,33 @@ main {
   max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding-left: $global-padding;
-  padding-right: $global-padding;
-  margin-bottom: $section-space;
+  padding-inline: var(--global-padding);
+  margin-bottom: var(--section-space);
 
-  picture {
+  .gatsby-image-wrapper {
     flex: 1 1 10rem;
-    transition-duration: 2000ms;
-  }
-
-  img {
-    max-width: 100%;
     transition-duration: 2000ms;
     filter: grayscale(100%);
     clip-path: circle(39% at center); // trial and error number
-    border: 2px solid $white;
+    border: 2px solid var(--brilliance);
+  }
+
+  .gatsby-image-wrapper:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+    border-radius: var(--global-border-radius);
+    clip-path: circle(71% at center); // trial and error number
+    z-index: 2;
   }
 }
 
-#gallery img:hover {
-  // scale: 1.2;
-  transform: scale(1.2);
-  z-index: 2;
-  border-radius: $global-border-radius;
-  filter: grayscale(0);
-  clip-path: circle(71% at center); // trial and error number
-}
-
 #video-edits {
-  margin-bottom: $section-space;
+  margin-bottom: var(--section-space);
 
   .video-area {
     display: grid;
     // grid-gap: 1rem;
-    margin-bottom: $section-space;
+    margin-bottom: var(--section-space);
     max-width: 66rem; // Im not 100 on this yet
     margin: 0 auto;
 
@@ -319,8 +324,8 @@ main {
     }
 
     > iframe {
-      margin: $global-margin;
-      border-radius: $global-border-radius;
+      margin: var(--global-margin);
+      border-radius: var(--global-border-radius);
       grid-row: 1/3;
       grid-column: 1;
       max-width: calc(100% - 2rem);
@@ -344,38 +349,38 @@ main {
     }
 
     h4 {
-      padding-left: $global-padding;
-      padding-right: $global-padding;
-      margin-top: calc($global-margin / 2);
+      padding-left: var(--global-padding);
+      padding-right: var(--global-padding);
+      margin-top: calc(var(--global-margin) / 2);
     }
 
     .video-area-title svg {
       width: 10rem;
-      margin-top: calc($global-margin / 2);
-      padding-left: $global-padding;
-      padding-right: $global-padding;
+      margin-top: calc(var(--global-margin) / 2);
+      padding-left: var(--global-padding);
+      padding-right: var(--global-padding);
     }
 
     > p {
       grid-row: 4;
       grid-column: 1;
-      padding: $global-padding;
+      padding: var(--global-padding);
       padding-top: 0;
 
       @media (min-width: map-get($breakpoints, medium)) {
         grid-row: 2;
         grid-column: 2;
         max-width: 22rem;
-        padding-top: $global-padding; // reset from small
+        padding-top: var(--global-padding); // reset from small
       }
     }
 
     > .video-area-background {
-      border-radius: $global-border-radius;
+      border-radius: var(--global-border-radius);
       z-index: -1;
       grid-row: 2/5;
       grid-column: 1;
-      border: 2px solid black;
+      border: 2px solid var(--black-metal);
 
       @media (min-width: map-get($breakpoints, medium)) {
         grid-row: 2;
@@ -396,8 +401,8 @@ main {
 } // #video-edits
 
 #sponsors {
-  padding-left: $global-padding;
-  padding-right: $global-padding;
+  padding-left: var(--global-padding);
+  padding-right: var(--global-padding);
 
   > h3 {
     text-align: center;
@@ -411,7 +416,7 @@ main {
   align-items: flex-end;
 
   > li {
-    margin-bottom: $section-space;
+    margin-bottom: var(--section-space);
     text-align: center;
     font-weight: bold;
 
@@ -426,16 +431,16 @@ main {
   flex-direction: column;
 
   > svg {
-    margin-bottom: $global-margin;
+    margin-bottom: var(--global-margin);
   }
 }
 
 footer {
   max-width: 44rem;
   margin: 0 auto;
-  padding-left: $global-padding;
-  padding-right: $global-padding;
-  margin-bottom: $section-space;
+  padding-left: var(--global-padding);
+  padding-right: var(--global-padding);
+  margin-bottom: var(--section-space);
 
   @media (min-width: map-get($breakpoints, medium)) {
     display: grid;
@@ -444,8 +449,7 @@ footer {
 
     .footer-social {
       grid-column: 2;
-      padding: $global-padding;
-      // text-align: center;
+      padding: var(--global-padding);
     }
   }
 }
@@ -454,15 +458,15 @@ footer {
   display: flex;
   svg {
     width: 3rem;
-    margin-right: $global-margin;
+    margin-right: var(--global-margin);
   }
 }
 
 footer nav li a {
-  border-radius: $global-border-radius;
-  padding: $global-padding;
-  border: 2px solid black;
-  margin-bottom: $global-margin;
+  border-radius: var(--global-border-radius);
+  padding: var(--global-padding);
+  border: 2px solid var(--black-metal);
+  margin-bottom: var(--global-margin);
   font-weight: bold;
   text-decoration: none;
   display: block;
@@ -471,8 +475,8 @@ footer nav li a {
 
 footer nav li a:hover {
   text-decoration: none;
-  background: darken($light-gray, 33%);
-  color: $white;
+  background: var(--tin-soldier);
+  color: var(--brilliance);
 }
 
 .active {
@@ -481,7 +485,6 @@ footer nav li a:hover {
 
 .inactive {
   display: none;
-  // opacity: 0;
 }
 
 .snowledge {
@@ -507,7 +510,7 @@ button {
   pointer-events: none;
   // do I need an opacity here? might make this clearer to read
 
-  background: black;
+  background: var(--black-metal);
 }
 .ripple.show {
   animation: ripple 0.75s ease-out;
@@ -521,4 +524,26 @@ button {
 
 .text-center {
   text-align: center;
+}
+
+/*------------------*/
+//  #Button
+/*------------------*/
+
+.button-styles {
+  transition: 0.5s ease;
+  z-index: 1;
+  position: relative;
+  height: 2rem;
+  padding: 0;
+  overflow: hidden;
+
+  span {
+    transition: 0.5s ease;
+    position: absolute;
+    line-height: 2;
+    overflow: hidden;
+    font-size: 1rem;
+    top: 0;
+  }
 }
