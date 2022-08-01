@@ -526,7 +526,7 @@ const IndexPage = () => {
 
 
 
-          <Accordion />
+          {/* <Accordion /> */}
 
 
 
