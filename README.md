@@ -2,9 +2,7 @@
 
 Bright sunshine
 
-## Built on Webpack
-
-A webpack setup [Stay-Gold](https://github.com/rileybathurst/stay-gold.git)
+## Built on WeGatsbybpack
 
 ```
 npm start

@@ -1,8 +1,6 @@
-node_modules
 node_modules/
 dist
 public
 package-lock.json
-.cache/
 .cache/
 .env*
