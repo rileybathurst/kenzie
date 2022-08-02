@@ -31,7 +31,7 @@ p {
 
 h1 {
   font-size: 3rem;
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 3rem);
   // color: var(--daishin-yellow); // todo: get this right
 
   .courgette {
@@ -46,28 +46,41 @@ h1 {
 
 h2 {
   font-size: 2.441rem;
+  font-size: clamp(1.25rem, 6vw, 2.5rem);
 }
 
 h3 {
   font-size: 1.953rem;
+  font-size: clamp(1rem, 6vw, 2rem);
 }
 
 h4 {
   font-size: 1.563rem;
+  font-size: clamp(1rem, 6vw, 1.5rem);
+  font-family: "Raleway", "Open Sans", sans-serif;
 }
 
 h5 {
   font-size: 1.25rem;
+  font-family: "Raleway", "Open Sans", sans-serif;
 }
 
 small,
 .text_small {
   font-size: 0.8rem;
+  font-family: "Raleway", "Open Sans", sans-serif;
 }
 
 blockquote {
   font-size: 1.563rem;
   font-style: oblique;
+  margin: 0; // reset
+  padding: 0.25rem;
+  font-family: "Raleway", "Open Sans", sans-serif;
+
+  @media (min-width: map-get($breakpoints, medium)) {
+    padding: 0.75rem;
+  }
 }
 
 a {
@@ -126,9 +139,9 @@ header {
     margin-block-end: 0;
     padding-block: 1.5rem;
 
-    @media (min-width: map-get($breakpoints, medium)) {
+    /*     @media (min-width: map-get($breakpoints, medium)) {
       text-align: left;
-    }
+    } */
 
     a {
       text-decoration: none;
