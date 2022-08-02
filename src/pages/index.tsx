@@ -1,11 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { StaticImage } from "gatsby-plugin-image"
+import BonsaiBackflip from '../images/bonsai-backflip';
+import SkiWax from '../images/ski-wax';
+import GuayakiPowSurf from '../images/guayaki-pow-surf';
+import Waterfall from '../images/waterfall';
 
 function CurrentIndustryPositions() {
   // I dont know how to make this reuseable
   // but i bet i coult set this boolean to the string
-  const [hiddenBoolean, setHiddenBoolean] = useState(true);
+  const [hiddenBoolean, setHiddenBoolean] = useState(false);
 
   function handleClick() {
     setHiddenBoolean(hiddenBoolean === false ? true : false);
@@ -27,10 +31,9 @@ function CurrentIndustryPositions() {
           </span>
         </button>
       </h3>
-      <div className="section-text"
+      <div className="section-text accordion-panel"
         role="region"
         aria-labelledby="accordion1id"
-        className={`accordion-panel`}
         hidden={hiddenBoolean}
       >
         <ul>
@@ -214,7 +217,7 @@ export function ProfileCraigieburn() {
     src="https://kenzie-ski.s3.us-west-1.amazonaws.com/kenzie_morris-profile-craigieburn.webp"
     alt="kenzie morris powder turn"
     itemProp="photo"
-    className="clip-circle"
+    className="clip-circle profile-image"
     breakpoints={[300, 600, 900]}
     width={650}
     objectFit="contain"
@@ -339,7 +342,12 @@ const IndexPage = () => {
   return (
     <>
       <header className='headingStyles'>
-        <h1><a href="#">Kenzie &#40;Morris&#41; Bathurst</a></h1>
+        <h1>
+          {/* <a href="#"> */}
+          <span className='courgette'>Kenzie</span>&nbsp;
+          <span className='h1__remainder'>&#40;Morris&#41; Bathurst</span>
+          {/* </a> */}
+        </h1>
 
         {/* <div id="header_menu" className="header-menu"> */}
         <Button />
@@ -359,6 +367,12 @@ const IndexPage = () => {
         <h2>Athlete, Adventurer, Outdoor lover</h2>
 
         <ProfileCraigieburn />
+        <div className='image-column'>
+          <BonsaiBackflip />
+          <SkiWax />
+          <GuayakiPowSurf />
+          <Waterfall />
+        </div>
 
         <article className="main-content">
           <section id="about">
@@ -375,11 +389,11 @@ const IndexPage = () => {
             <blockquote>"Find your passion and make it everything"</blockquote>
           </section>
 
-          <hr />
+          {/* <hr /> */}
 
           <CurrentIndustryPositions />
 
-          <hr />
+          {/* <hr /> */}
 
           <section id="competition-results">
             <h3>Competition Results</h3>

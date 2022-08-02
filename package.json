@@ -21,6 +21,10 @@
   },
   "keywords": [],
   "dependencies": {
+    "@fontsource/courgette": "^4.5.7",
+    "@fontsource/ostrich-sans": "^4.5.3",
+    "@fontsource/raleway": "^4.5.9",
+    "@fontsource/yeseva-one": "^4.5.9",
     "@material/button": "^14.0.0",
     "@material/ripple": "^14.0.0",
     "gatsby": "^4.19.2",
