@@ -3,7 +3,7 @@ module.exports = {
     title: "Kenzie (Morris) Bathurst",
     description: "Athlete, Adventurer, Outdoor lover",
     siteUrl: "https://kenzie.ski",
-    ogImage: "https://kenzie.ski/img/kenzie-morris-bathurst-og.jpg",
+    ogImage: "https://kenzie.ski/kenzie-morris-bathurst-og.jpg",
     ogImageAlt: "Kenzie Morris Bathurst hiking with skis up mt hood",
   },
   plugins: [
