@@ -33,6 +33,7 @@ module.exports = {
       __key: "images"
     },
     'gatsby-plugin-netlify',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
