@@ -1,0 +1,53 @@
+comps:
+  - event: Powder Magazine Powder Week
+    year: 2013
+    result: Queen
+
+  - series: Freeride World Qualifier
+    Beartooth Basin:
+      year: 2017
+      result: 6th
+
+    Snowbird:
+      year: 2013
+      result: 7th
+
+    Chill Series:
+      year: 2013
+      result: 8th
+
+    Winter Park:
+      year: 2013
+      result: 12th
+
+    # Snowbird2015:
+    # year: 2015
+    # result: 12th
+
+    Castle Mountain:
+      year: 2013
+      result: 13th
+
+    Crystal Mountain:
+      year: 2016
+      result: 13th
+
+  - series: Cardrona Uni Games
+    year: 2006
+    Half Pipe:
+      result: 2nd
+
+    Big Air:
+      result: 3rd
+
+  - event: CUBA Rail Jam
+    year: 2006
+    result: 1st
+
+  - event: Mt Hutt Rail Jam
+    year: 2006
+    result: 1st
+
+  - event: Methven Rail Jam
+    year: 2006
+    result: 2nd

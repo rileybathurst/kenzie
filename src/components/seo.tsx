@@ -20,7 +20,7 @@ export const SEO = ({
     siteUrl: url,
   }
 
-  console.log(seo.title)
+  // console.log(seo.title)
 
   return (
     <>

@@ -13,51 +13,9 @@ import Facebook from '../svg/facebook';
 import Instagram from '../svg/instagram';
 import Video from '../components/video';
 
-function CurrentIndustryPositions() {
-  // I dont know how to make this reuseable
-  // but i bet i coult set this boolean to the string
-  const [hiddenBoolean, setHiddenBoolean] = useState(false);
-
-  function handleClick() {
-    setHiddenBoolean(hiddenBoolean === false ? true : false);
-  }
-
-  return (
-    <section id="current-industry-positions accordion">
-      <h3>
-        <button
-          type="button"
-          aria-expanded={hiddenBoolean}
-          className="accordion-trigger"
-          aria-controls="sect1" id="accordion1id"
-          onClick={handleClick}
-        >
-          <span className="accordion-title">
-            Current Industry Positions
-            <span className="accordion-icon">
-              {/* // ! Stay Gold */}
-            </span>
-          </span>
-        </button>
-      </h3>
-      <div className="section-text accordion-panel"
-        role="region"
-        aria-labelledby="accordion1id"
-        hidden={hiddenBoolean}
-      >
-        <ul>
-          <li key="FWQ-judge">IFSA Freeride World Qualifier Judge</li>
-          <li key="junior-judge">IFSA Junior Judge</li>
-          <li key="tahoe-judge">Tahoe Junior Freeride Series Judge</li>
-          <li key="coach">Squaw Valley Ski Team Coach</li>
-          <li key="gore">Marketing technical representative for Gore-Tex</li>
-          <li key="bootfitting">Hardgoods Sales, Bootfitting</li>
-          <li key="snowledge">Snowledge App Marketing/ Team Manager</li>
-        </ul>
-      </div>
-    </section>
-  )
-}
+import Current from '../../content/current.yaml';
+import Comps from '../../content/comps.yaml';
+import Writing from '../../content/writing.yaml';
 
 function List() {
   return (
@@ -190,7 +148,7 @@ const IndexPage = () => {
           <span className='h1__remainder'>&#40;Morris&#41; Bathurst</span>
         </h1>
 
-        <Button />
+        {/* <Button /> */}
       </header>
 
       <section id="gallery">
@@ -225,35 +183,40 @@ const IndexPage = () => {
             <blockquote>"Find your passion and make it everything"</blockquote>
           </section>
 
-          <CurrentIndustryPositions />
+          <section id="current-industry-positions accordion">
+            <h3>Current Industry Positions</h3>
+            <ul>
+              {Current.current.map((postion) => {
+                return <li key={postion}>{postion}</li>
+              })}
+            </ul>
+          </section>
 
           <section id="competition-results">
             <h3>Competition Results</h3>
             <div className="section-text">
               <ul>
-                <li key="Powder">Powder Magazine Powder Week Queen &#40;2013&#41; 1st</li>
-                <li key="FWQ">
-                  Freeride World Qualifiers:
-                  <ul className="results-sub">
-                    <li key="Beartooth">Beartooth Basin &#40;2017&#41; 6th</li>
-                    <li key="Snowbird">Snowbird &#40;2013&#41; 7th</li>
-                    <li key="Chill">Chill Series &#40;2013&#41; 8th</li>
-                    <li key="Winter">Winter Park &#40;2013&#41; 12th</li>
-                    <li key="2015">Snowbird &#40;2015&#41; 12th</li>
-                    <li key="Castle">Castle Mountain &#40;2013&#41; 13th</li>
-                    <li key="Crystal">Crystal Mountain &#40;2016&#41; 13th</li>
-                  </ul>
-                </li>
-                <li key="Cardrona">
-                  Cardrona Uni Games &#40;2006&#41;
-                  <ul className="results-sub">
-                    <li key="Half">Half Pipe 2nd</li>
-                    <li key="Big">Big Air 3rd</li>
-                  </ul>
-                </li>
-                <li key="CUBA">CUBA Rail Jam &#40;2006&#41; 1st</li>
-                <li key="Hutt">Mt Hutt Rail Jam &#40;2006&#41; 1st</li>
-                <li key="Methven">Methven Rail Jam &#40;2006&#41; 2nd</li>
+                {/* // ! this is kinda a nightmare */}
+                {Comps.comps.map((result) => {
+
+                  if ('event' in result) {
+                    return (<li>{result.event}</li>)
+                  } else {
+
+                    const events = Object.entries(result).map(([key, value]) => {
+                      // console.log(key, value);
+                      console.log(value);
+                      if (typeof value === 'object') {
+                        return (<li>value</li>)
+                      }
+                    })
+
+                    return <li>{result.series}{events}</li>
+                  }
+
+
+                })}
+
               </ul>
             </div>
           </section>
@@ -263,27 +226,25 @@ const IndexPage = () => {
           <section id="writing">
             <h3>Writing</h3>
             <ul>
-              <li key="Ten">
-                <a
-                  href="https://www.moonshineink.com/think-local/what-does-it-mean-to-be-a-tahoe-truckee-local/"
-                  target="_blank"
-                  rel='noopener noreferrer'
-                >
-                  Ten Markers of a True Tahoe/Truckee-ite - Moonshine Ink
-                </a>
-              </li>
-              <li key="Cascadia">
-                <a
-                  href="https://sheshreds.co/blogs/news/cascadia-behind-the-scenes-backcountry-mountaineering-adventure"
-                  target="_blank"
-                  rel='noopener noreferrer'
-                >
-                  Cascadia: Behind The Scenes Backcountry Mountaineering
-                  Adventure - Sheshreds.co
-                </a>
-              </li>
-              <li key="Throw">Throw &amp; Tell - Disc Golf - Chill Adventures</li>
-              <li key="Boyfriend"><a href="#">Skiing is my Boyfriend - Newschoolers</a></li>
+              {Writing.writing.map((article) => {
+                if (article.link) {
+                  return (
+                    <li key={article}>
+                      <a href={article.link} target="_blank" rel='noopener noreferrer'>
+                        {article.title}
+                      </a>
+                      {article.publication}
+                    </li>
+                  )
+                } else {
+                  return (
+                    <li key={article}>
+                      {article.title}&nbsp;
+                      {article.publication}
+                    </li>
+                  )
+                }
+              })}
             </ul>
           </section>
 
