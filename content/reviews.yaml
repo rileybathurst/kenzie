@@ -1,0 +1,28 @@
+reviews:
+  - year: 2019
+    link: https://www.powder.com/gear-locker/best-hybrid-ski-boots-of-2019/
+    boots:
+      {
+        Technica Mach1MV Heat 95 W,
+        Lange XT110 Free W LV,
+        ROXA R3W 105 TI,
+        Rossignol Alltrack Elite 100 LT,
+      }
+
+  - year: 2018
+
+  - year: 2015
+    link: https://www.powder.com/stories/best-womens-skis
+    skis: { Head Great Joy, Kastle FX 104 }
+
+    boots:
+      {
+        Dalbello Krypton Kryzma.i.d.,
+        Lange XT 110 W,
+        Head Raptor 110 RS W,
+        HK2 Minaret 100,
+      }
+
+  - year: 2014
+
+  - year: 2013

@@ -16,6 +16,7 @@ import Video from '../components/video';
 import Current from '../../content/current.yaml';
 import Comps from '../../content/comps.yaml';
 import Writing from '../../content/writing.yaml';
+import Reviews from '../../content/reviews.yaml';
 
 function List() {
   return (
@@ -45,6 +46,8 @@ function Button() {
   });
   // }
 
+  // ? I wonder if I can do some fancy stuff with ternary operators here
+
   if (slide == "firstload") {
 
     return (
@@ -59,7 +62,7 @@ function Button() {
           >close<br />menu
           </span>
           <span className='ripple'>
-            {/* // ! Stay Gold */}
+            {/* // * Stay Gold */}
           </span>
         </button>
         <nav
@@ -89,7 +92,7 @@ function Button() {
           >close<br />menu
           </span>
           <span className='ripple'>
-            {/* // ! Stay Gold */}
+            {/* // * Stay Gold */}
           </span>
         </button>
         <nav
@@ -120,7 +123,7 @@ function Button() {
           >close<br />menu
           </span>
           <span className='ripple'>
-            {/* // ! Stay Gold */}
+            {/* // * Stay Gold */}
           </span>
         </button>
         <nav
@@ -197,25 +200,19 @@ const IndexPage = () => {
             <div className="section-text">
               <ul>
                 {Comps.comps.map((result) => {
-                  // single is easy
                   if ('event' in result) {
-                    return (<li>{result.event}</li>)
-                    // or we start having to loop at lot more
+                    return (<li>{result.event} - {result.year} - {result.result}</li>)
                   } else {
                     const events = Object.entries(result).map(([key, value]) => {
-                      // console.log(key, value);
-                      console.log(value);
                       if (typeof value === 'object') {
-
                         const nested = Object.entries(value).map(([key, value]) => {
-                          console.log(key, value);
-                          return (<li>{key}{value}</li>)
+                          return (<> - {value}</>)
                         })
-
-                        return (<li>{key}<ul>{nested}</ul></li>)
+                        return (<li>{key}{nested}</li>)
                       }
                     })
-                    return <li>{result.series}<ul>{events}</ul></li>
+                    const year = result.year ? " - " + result.year : '';
+                    return <li>{result.series}{year}<ul>{events}</ul></li>
                   }
                 })}
               </ul>
@@ -234,13 +231,13 @@ const IndexPage = () => {
                       <a href={article.link} target="_blank" rel='noopener noreferrer'>
                         {article.title}
                       </a>
-                      {article.publication}
+                      &nbsp;- {article.publication}
                     </li>
                   )
                 } else {
                   return (
                     <li key={article}>
-                      {article.title}&nbsp;
+                      {article.title} -&nbsp;
                       {article.publication}
                     </li>
                   )
@@ -253,58 +250,48 @@ const IndexPage = () => {
 
           <section id="gear-reviews">
             <h3>Powder Magazine Gear Reviews</h3>
+            {Reviews.reviews.map((review) => {
 
-            <h4>
-              <a
-                href="https://www.powder.com/gear-locker/best-hybrid-ski-boots-of-2019/"
-                target="_blank"
-                rel='noopener noreferrer'
-              >2019 Buyers Guide
-              </a>
-            </h4>
-            <h5>Boots</h5>
-            <ul>
-              <li key="Technica">Technica Mach1MV Heat 95 W</li>
-              <li key="Lange">Lange XT110 Free W LV</li>
-              <li key="ROXA">ROXA R3W 105 TI</li>
-              <li key="Rossignol">Rossignol Alltrack Elite 100 LT</li>
-            </ul>
+              let linked = review.link ? (
+                <a href={review.link} target="_blank" rel='noopener noreferrer'>
+                  {review.year}
+                </a>
+              ) : (
+                review.year
+              )
 
-            <h4>
-              <a
-                href="https://www.pressreader.com/usa/powder/20180901/282832191933192"
-                target="_blank"
-                rel='noopener noreferrer'
-              >
-                2018 Buyers Guide
-              </a>
-            </h4>
+              const products = Object.entries(review).map(([key, value]) => {
 
-            <h4>
-              <a
-                href="https://www.powder.com/stories/the-safe-zone/best-womens-skis/"
-                target="_blank"
-                rel='noopener noreferrer'
-              >
-                2015 Buyers Guide
-              </a>
-            </h4>
-            <h5>Skis</h5>
-            <ul>
-              <li key="Head">Head Great Joy</li>
-              <li key="Kastle">Kastle FX 104</li>
-            </ul>
+                // console.log(key, value);
+                if (typeof value == 'object') {
 
-            <h5>Boots</h5>
-            <ul>
-              <li key="Dalbello">Dalbello Krypton Kryzma.i.d.</li>
-              <li key="Lange">Lange XT 110 W</li>
-              <li key="Head">Head Raptor 110 RS W</li>
-              <li key="HK2">HK2 Minaret 100</li>
-            </ul>
+                  // console.log(value);
+                  const nest = Object.entries(value).map(([value]) => {
+                    return (<li key={value}>{value}</li>);
+                  })
 
-            <h4><a href="#">2014 Buyers Guide</a></h4>
-          </section>
+                  return (
+                    <ul>
+                      <li>{key}
+                        <ul>
+                          {nest}
+                        </ul>
+                      </li>
+                    </ul>
+                  )
+
+                }
+              })
+
+              return (
+                <div className="section-text" key={review.year}>
+                  <h4>{linked}</h4>
+                  {products}
+                </div>
+              )
+            })
+            }
+          </section >
 
           <hr />
 
@@ -321,16 +308,15 @@ const IndexPage = () => {
                     Facing Fear and Moving Mountains - Snowledge Article
                   </a>
                 </li>
-                <li key="POWDER">2013, 2014, 2018 POWDER Magazine Buyers Guide Boot tester</li>
                 <li key="150">150 Days skied in 2017-18 Season</li>
               </ul>
             </div>
           </section>
 
-        </article>
+        </article >
 
         <div className="main-background">
-          {/* // ! Stay Gold */}
+          {/* // * Stay Gold */}
         </div>
       </main>
 
