@@ -196,27 +196,28 @@ const IndexPage = () => {
             <h3>Competition Results</h3>
             <div className="section-text">
               <ul>
-                {/* // ! this is kinda a nightmare */}
                 {Comps.comps.map((result) => {
-
+                  // single is easy
                   if ('event' in result) {
                     return (<li>{result.event}</li>)
+                    // or we start having to loop at lot more
                   } else {
-
                     const events = Object.entries(result).map(([key, value]) => {
                       // console.log(key, value);
                       console.log(value);
                       if (typeof value === 'object') {
-                        return (<li>value</li>)
+
+                        const nested = Object.entries(value).map(([key, value]) => {
+                          console.log(key, value);
+                          return (<li>{key}{value}</li>)
+                        })
+
+                        return (<li>{key}<ul>{nested}</ul></li>)
                       }
                     })
-
-                    return <li>{result.series}{events}</li>
+                    return <li>{result.series}<ul>{events}</ul></li>
                   }
-
-
                 })}
-
               </ul>
             </div>
           </section>
