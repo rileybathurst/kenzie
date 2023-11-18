@@ -59,7 +59,7 @@ const IndexPage = () => {
             <blockquote>"Find your passion and make it everything"</blockquote>
           </section>
 
-          <section id="current-industry-positions accordion">
+          <section id="current-industry-positions">
             <h3>Current Industry Positions</h3>
             <ul>
               {Current.current.map((postion) => {

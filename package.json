@@ -23,8 +23,6 @@
   "dependencies": {
     "@fontsource/ostrich-sans": "^5.0.7",
     "@fontsource/raleway": "^5.0.15",
-    "@material/button": "^14.0.0",
-    "@material/ripple": "^14.0.0",
     "gatsby": "^5.12.9",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-netlify": "^5.1.1",

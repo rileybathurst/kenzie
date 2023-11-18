@@ -134,7 +134,7 @@
   }
 
   .gatsby-image-wrapper {
-    padding: 0.2rem; /* TODO: variable */
+    padding: 0.25rem;
   }
 }
 
@@ -145,7 +145,7 @@
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  gap: 2px; /* TODO: variable */
+  gap: 0.25rem;
 
   /* TODO: not baseline yet so should have a supports thats confusing with :has
   button:has(.gatsby-image-wrapper) {
@@ -154,8 +154,8 @@
 }
 
 .carousel__label .slider {
-  width: 2.5rem; /* TODO: variable */
-  height: 2.5rem; /* TODO: variable */
+  width: var(--aconcagua);
+  height: var(--aconcagua);
 
   .gatsby-image-wrapper {
     width: 100%;

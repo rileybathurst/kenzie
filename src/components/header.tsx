@@ -1,6 +1,7 @@
 import React from "react"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import List from "./list";
+import { Link } from "gatsby";
 
 function Button() {
 
@@ -29,9 +30,6 @@ function Button() {
             className="span-styles"
           >close<br />menu
           </span>
-          <span className='ripple'>
-            {/* // * Stay Gold */}
-          </span>
         </button>
         <nav
           id="menu_small"
@@ -58,9 +56,6 @@ function Button() {
             style={{ transform: 'translateY(-2rem)' }}
             className="span-styles"
           >close<br />menu
-          </span>
-          <span className='ripple'>
-            {/* // * Stay Gold */}
           </span>
         </button>
         <nav
@@ -90,9 +85,6 @@ function Button() {
             className="span-styles"
           >close<br />menu
           </span>
-          <span className='ripple'>
-            {/* // * Stay Gold */}
-          </span>
         </button>
         <nav
           style={{
@@ -114,7 +106,11 @@ const Header = () => {
 
   return (
     <header className='headingStyles'>
-      <h1>{useSiteMetadata().title}</h1>
+      <h1>
+        <Link to="/" activeClassName="dont-style-home">
+          {useSiteMetadata().title}
+        </Link>
+      </h1>
       {/* <Button /> */}
     </header>
   )

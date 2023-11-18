@@ -16,38 +16,42 @@ h3 {
   margin-top: 0; /* reset */
 }
 
-h1 {
-  font-size: 3rem;
-  font-size: clamp(1.5rem, 3vw, 3rem);
-}
-
-h2 {
-  font-size: 2.441rem;
-  font-size: clamp(1.25rem, 6vw, 2.5rem);
-}
-
-h3 {
-  font-size: 1.953rem;
-  font-size: clamp(1rem, 6vw, 2rem);
-}
-
 h4, h5, h6 {
   font-family: var(--body-family);
   margin-top: 0; /* reset */
 }
 
+h1 {
+  font-size: var(--everest);
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+h2 {
+  font-size: var(--aconcagua);
+  font-size: clamp(1.25rem, 6vw, 2.5rem);
+}
+
+h3 {
+  font-size: var(--denali);
+  font-size: clamp(1rem, 6vw, 2rem);
+}
+
 h4 {
-  font-size: 1.563rem;
+  font-size: var(--kilimanjaro);
   font-size: clamp(1rem, 6vw, 1.5rem);
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: var(--elbrus);
+}
+
+h5 {
+  font-size: var(--vinson);
 }
 
 small,
 .text_small {
-  font-size: 0.8rem;
+  font-size: var(--kosciuszko);
   font-family: var(--body-family);
 }
 

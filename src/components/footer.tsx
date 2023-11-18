@@ -17,14 +17,13 @@ const Header = () => {
         <h4 className="sr-only">Social Media</h4>
         <ul>
           <li key="Instagram">
-            <a href="https://www.instagram.com/kaygbiv/">
+            <a href={`https://www.instagram.com/${useSiteMetadata().social.instagram}`}>
               <p className="sr-only">instagram.com/{useSiteMetadata().social.instagram}</p>
               <Instagram />
             </a>
           </li>
           <li key="Facebook">
-            <a href="https://www.facebook.com/kenziebathurst">
-              {/* // ! variables */}
+            <a href={`https://www.facebook.com/${useSiteMetadata().social.facebook}`}>
               <p className="sr-only">facebook.com/{useSiteMetadata().social.facebook}</p>
               <Facebook />
             </a>
