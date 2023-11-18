@@ -9,10 +9,7 @@ import BonsaiBackflip from '../images/bonsai-backflip';
 import SkiWax from '../images/ski-wax';
 import GuayakiPowSurf from '../images/guayaki-pow-surf';
 import Waterfall from '../images/waterfall';
-import PowderTurn from '../images/powder-turn';
-import IlluminationRock from '../images/illumination-rock';
-import CliffDrop from '../images/cliff-drop';
-import MtBaker from '../images/mt-baker';
+import Carousel from '../components/carousel';
 import ProfileCraigieburn from '../images/profile-craigieburn';
 import Video from '../components/video';
 
@@ -27,12 +24,7 @@ const IndexPage = () => {
     <>
       <Header />
 
-      <section id="gallery">
-        <PowderTurn />
-        <IlluminationRock />
-        <CliffDrop />
-        <MtBaker />
-      </section>
+      <Carousel />
 
       <main>
         <h2>{useSiteMetadata().description}</h2>

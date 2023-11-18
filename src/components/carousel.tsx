@@ -1,67 +1,55 @@
 import React, { useState, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+
 const Carousel = () => {
+
+  let slide = {
+    behavior: 'smooth',
+    block: 'nearest',
+    inline: 'center',
+  }
 
   const { allImageSharp } = useStaticQuery(graphql`
     query allImageSharpQuery {
       allImageSharp {
         nodes {
-          gatsbyImageData
+          gatsbyImageData(
+            height: 1080
+            width: 1920
+            )
         }
       }
     }
   `)
 
-
   const galleryRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = (currentIndex) => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? allImageSharp.length - 1 : prevIndex - 1));
+
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? allImageSharp.nodes.length - 1 : prevIndex - 1));
 
     if (currentIndex === 0) {
-      galleryRef.current.lastChild.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      });
+      galleryRef.current.lastChild.scrollIntoView(slide);
     } else {
-      galleryRef.current.children[currentIndex - 1].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      });
+      galleryRef.current.children[currentIndex - 1].scrollIntoView(slide);
     }
   };
 
   const handleNext = (currentIndex) => {
-    setCurrentIndex((prevIndex) => (prevIndex === allImageSharp.length - 1 ? 0 : prevIndex + 1));
+
+    setCurrentIndex((prevIndex) => (prevIndex === allImageSharp.nodes.length - 1 ? 0 : prevIndex + 1));
 
     if (currentIndex === galleryRef.current.children.length - 1) {
-      galleryRef.current.children[0].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      });
+      galleryRef.current.children[0].scrollIntoView(slide);
     } else {
-      galleryRef.current.children[currentIndex + 1].scrollIntoView({
-
-      });
+      galleryRef.current.children[currentIndex + 1].scrollIntoView(slide);
     }
   };
 
   const handleLabelClick = (index) => {
-    setCurrentIndex(index);
-
-    // ! theres isnt a name this wont work
-    let i = allImageSharp.nodes.findIndex((element) => element.name === index);
-
-    galleryRef.current.children[i].scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
-    })
+    galleryRef.current.children[index].scrollIntoView(slide)
   }
 
   return (
@@ -87,12 +75,12 @@ const Carousel = () => {
 
         <section className="carousel__label">
           <button onClick={() => handlePrev(currentIndex)}>Previous</button>
-          {allImageSharp.nodes.map((photos) => (
+          {allImageSharp.nodes.map((photos, index) => (
             <button
               title={photos.name}
               key={photos.name}
               // I can push up the index of the number I am clicking on
-              onClick={() => handleLabelClick(photos.name)}
+              onClick={() => handleLabelClick(index)}
               className="slider"
             >
               <GatsbyImage

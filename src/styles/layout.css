@@ -158,3 +158,9 @@ footer {
     }
   }
 }
+
+.stork {
+  max-width: var(--stork);
+  margin-inline: auto;
+  padding-inline-start: var(--global-padding);
+}

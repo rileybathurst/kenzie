@@ -1,13 +1,15 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 import Carousel from "../components/carousel"
 
 const PhotoPage = () => {
   return (
     <>
-      test
+      <Header />
       <Carousel />
+      <Footer />
     </>
   )
 }
