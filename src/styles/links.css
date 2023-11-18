@@ -1,0 +1,50 @@
+/* LINKS */
+
+a {
+  color: var(--black-metal);
+}
+
+a:hover {
+  text-decoration: line-through;
+}
+
+a:hover svg {
+  fill: var(--brilliance);
+  transition: var(--global-transition);
+}
+
+/* BUTTON */
+
+button {
+  position: relative;
+  background: var(--kingly-cloud);
+  font-size: 1.25rem; /* ? */
+  padding: var(--global-padding);
+  border: 2px solid var(--black-metal);
+  border-radius: var(--global-border-radius);
+  font-family: var(--header-font);
+  transition: var(--global-transition);
+}
+
+button:hover {
+  background: var(--tin-soldier);
+  color: var(--industrial-revolution);
+}
+
+.button-styles {
+  transition: 0.5s ease;
+  z-index: 1;
+  position: relative;
+  height: 2rem;
+  padding: 0;
+  overflow: hidden;
+
+  span {
+    transition: 0.5s ease;
+    position: absolute;
+    line-height: 2;
+    overflow: hidden;
+    font-size: 1rem;
+    top: 0;
+  }
+}

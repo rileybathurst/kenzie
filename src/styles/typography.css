@@ -1,0 +1,72 @@
+/* TYPOGRAPHY */
+
+body {
+  font-family: var(--body-family);
+  font-weight: "400";
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--kingly-cloud);
+  margin: 0; /* reset */
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--header-font);
+  margin-top: 0; /* reset */
+}
+
+h1 {
+  font-size: 3rem;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+h2 {
+  font-size: 2.441rem;
+  font-size: clamp(1.25rem, 6vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.953rem;
+  font-size: clamp(1rem, 6vw, 2rem);
+}
+
+h4, h5, h6 {
+  font-family: var(--body-family);
+  margin-top: 0; /* reset */
+}
+
+h4 {
+  font-size: 1.563rem;
+  font-size: clamp(1rem, 6vw, 1.5rem);
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+small,
+.text_small {
+  font-size: 0.8rem;
+  font-family: var(--body-family);
+}
+
+blockquote {
+  font-size: 1.563rem;
+  font-style: oblique;
+  margin: 0; /* reset */
+  padding: 0.25rem;
+  font-family: var(--body-family);
+
+  @media (min-width: 40rem) {
+    padding: 0.75rem;
+  }
+}
+
+p {
+  margin-top: 0; /* reset */
+}
+
+.text-center {
+  text-align: center;
+}

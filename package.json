@@ -21,7 +21,6 @@
   },
   "keywords": [],
   "dependencies": {
-    "@fontsource/courgette": "^5.0.17",
     "@fontsource/ostrich-sans": "^5.0.7",
     "@fontsource/raleway": "^5.0.15",
     "@material/button": "^14.0.0",
@@ -29,14 +28,18 @@
     "gatsby": "^5.12.9",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-sass": "^6.12.3",
+    "gatsby-plugin-postcss": "^6.12.0",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-plugin-sitemap": "^6.12.3",
     "gatsby-source-filesystem": "^5.12.1",
     "gatsby-transformer-remark": "^6.12.3",
     "gatsby-transformer-sharp": "^5.12.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.69.5"
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.1"
   }
 }

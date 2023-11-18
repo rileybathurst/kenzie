@@ -1,0 +1,26 @@
+/* ANIMATION */
+
+button {
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15); /* TODO: variable */
+  border-radius: 100%;
+  transform: scale(0); /* not really on without the animation */
+  pointer-events: none;
+  /* ? do I need an opacity here? might make this clearer to read */
+
+  background: var(--black-metal);
+}
+
+.ripple.show {
+  animation: ripple 0.75s ease-out;
+}
+@keyframes ripple {
+  to {
+    transform: scale(2); /* double up as its currently zero size */
+    opacity: 0; /* but also dissapper */
+  }
+}

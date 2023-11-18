@@ -1,13 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: "Kenzie (Morris) Bathurst",
+    title: "Kenzie Bathurst",
     description: "Athlete, Adventurer, Outdoor lover",
     siteUrl: "https://kenzie.ski",
     ogImage: "https://kenzie.ski/kenzie-morris-bathurst-og.jpg",
     ogImageAlt: "Kenzie Morris Bathurst hiking with skis up mt hood",
+    social: {
+      instagram: "kenzbathurst",
+      facebook: "kenziebathurst",
+    }
   },
   plugins: [
-    "gatsby-plugin-sass",
     "gatsby-plugin-image",
     {
       resolve: `gatsby-plugin-sharp`,
@@ -42,5 +45,15 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`postcss-import`),
+          require('autoprefixer'),
+          require('postcss-nested'),
+        ],
+      },
+    },
   ]
 };

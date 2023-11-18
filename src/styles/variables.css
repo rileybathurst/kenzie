@@ -1,20 +1,14 @@
 :root {
-  // I dont think Im using these colors
+  /* COLOR */
+  /* TODO: I dont think Im using these colors */
   --dandelion: hsl(50, 87.5%, 62.5%);
   --daishin-yellow: hsl(50, 87.5%, 47.5%);
   --banana-custard: hsl(50, 87.5%, 87.5%);
   --secondary: hsl(215, 37.5%, 75%);
 
-  --global-margin: 1rem;
-  --global-padding: 1rem;
+  --snowledge: #009f9c;
 
-  --section-space: 3rem;
-
-  --global-border-radius: 5px;
-
-  // --header-font: "brandon-grotesque", sans-serif;
-  --header-font: "Ostrich Sans", sans-serif;
-
+  /* NEUTRALS */
   --black-metal: hsl(0, 0%, 2.5%);
   --black-out: hsl(0, 0%, 12.5%);
   --raven-black: hsl(0, 0%, 25%);
@@ -25,15 +19,23 @@
   --kingly-cloud: hsl(0, 0%, 87.5%);
   --brilliance: hsl(0, 0%, 97.5%);
 
+  /* SPACING */
+  --global-margin: 1rem;
+  --global-padding: 1rem;
+  --section-space: 3rem;
+
+  /* TYPOGRAPHY */
+  --header-font: "Ostrich Sans", sans-serif;
+  --body-family: "Raleway", "Open Sans", sans-serif;
   --measure: 40rem;
+  
+  /* ADDITIONAL */
+  --global-transition: 0.5s;
+  --global-border-radius: 5px;
 }
 
-$breakpoints: (
-  small: 0,
-  medium: 640px,
-  large: 1024px,
-  xlarge: 1200px,
-  xxlarge: 1440px,
-);
-
-$global-transition: 0.5s;
+  /* small: 0, */
+  /* medium: 640px, */
+  /* large: 1024px, */
+  /* xlarge: 1200px, */
+  /* xxlarge: 1440px, */

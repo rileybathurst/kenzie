@@ -1,0 +1,15 @@
+/* APP */
+
+@import "variables";
+@import "layout";
+@import "menu";
+@import "typography";
+@import "links";
+@import "lists";
+@import "media";
+@import "animation";
+
+@import "a11y";
+
+/* * https://material.io/develop/web/supporting/ripple */
+/* ? im not sure if I want to do material. I kinda like building interesting things */

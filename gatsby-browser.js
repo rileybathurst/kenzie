@@ -1,5 +1,4 @@
-import "./src/styles/app.scss";
+import "./src/styles/app.css";
 
 import "@fontsource/raleway/400.css";
-import "@fontsource/courgette";
 import "@fontsource/ostrich-sans";

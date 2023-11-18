@@ -10,6 +10,11 @@ export const useSiteMetadata = () => {
           ogImage
           ogImageAlt
           siteUrl
+
+          social {
+            instagram
+            facebook
+          }
         }
       }
     }

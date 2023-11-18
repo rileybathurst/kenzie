@@ -1,0 +1,164 @@
+/* MEDIA */
+
+#gallery {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline: var(--global-padding);
+  margin-bottom: var(--section-space);
+
+  .gatsby-image-wrapper {
+    flex: 1 1 10rem;
+    transition-duration: 2000ms;
+    filter: grayscale(100%);
+    clip-path: circle(39% at center); /* trial and error number */
+    border: 2px solid var(--brilliance);
+  }
+
+  .gatsby-image-wrapper:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+    border-radius: var(--global-border-radius);
+    clip-path: circle(71% at center); /* trial and error number */
+    z-index: 2;
+  }
+}
+
+#video-edits {
+  margin-bottom: var(--section-space);
+
+  .video-area {
+    display: grid;
+    margin-bottom: var(--section-space);
+    max-width: 66rem; /* trial and error number */
+    margin: 0 auto;
+
+    @media (min-width: 40rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    > iframe {
+      margin: var(--global-margin);
+      border-radius: var(--global-border-radius);
+      grid-row: 1/3;
+      grid-column: 1;
+      max-width: calc(100% - 2rem);
+
+      @media (min-width: 40rem) {
+        grid-row: 1/3;
+        justify-self: end;
+      }
+    }
+
+    h4,
+    > .video-area-title {
+      grid-row: 3;
+      grid-column: 1;
+
+      @media (min-width: 40rem) {
+        grid-row: 1;
+        grid-column: 2;
+        align-self: end;
+      }
+    }
+
+    h4 {
+      padding-inline: var(--global-padding);
+      margin-top: calc(var(--global-margin) / 2);
+    }
+
+    .video-area-title svg {
+      width: 10rem;
+      margin-top: calc(var(--global-margin) / 2);
+      padding-inline: var(--global-padding);
+    }
+
+    > p {
+      grid-row: 4;
+      grid-column: 1;
+      padding: var(--global-padding);
+      padding-top: 0;
+
+      @media (min-width: 40rem) {
+        grid-row: 2;
+        grid-column: 2;
+        max-width: 22rem;
+        padding-top: var(--global-padding); /* reset from small */
+      }
+    }
+
+    > .video-area-background {
+      border-radius: var(--global-border-radius);
+      z-index: -1;
+      grid-row: 2/5;
+      grid-column: 1;
+      border: 2px solid var(--black-metal);
+
+      @media (min-width: 40rem) {
+        grid-row: 2;
+        grid-column: 1/3;
+      }
+    }
+
+    > .video-area-spacer {
+      grid-row: 2;
+      grid-column: 1;
+      min-height: 5rem;
+
+      @media (min-width: 40rem) {
+        display: none;
+      }
+    }
+  }
+}
+
+.snowledge {
+  transition: var(--global-transition);
+}
+
+.snowledge:hover {
+  fill: var(--snowledge);
+}
+
+/* #CAROUSEL */
+
+/* control the height with the query */
+.carousel {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-block-end: 1rem; /* TODO: variable */
+
+  .slider {
+    display: inline-block;
+    transition: var(--global-transition);
+  }
+
+  .gatsby-image-wrapper {
+    padding: 0.2rem; /* TODO: variable */
+  }
+}
+
+.carousel__label {
+  max-width: 100vw;
+  margin-inline: auto;
+  width: fit-content;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  gap: 2px; /* TODO: variable */
+
+  /* TODO: not baseline yet so should have a supports thats confusing with :has
+  button:has(.gatsby-image-wrapper) {
+    padding: 1px;
+  } */
+}
+
+.carousel__label .slider {
+  width: 2.5rem; /* TODO: variable */
+  height: 2.5rem; /* TODO: variable */
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+}
