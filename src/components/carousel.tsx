@@ -12,11 +12,10 @@ const Carousel = () => {
 
   const { allImageSharp } = useStaticQuery(graphql`
     query allImageSharpQuery {
-      allImageSharp {
+      allImageSharp(filter: {id: {ne: "11bbb740-534c-5ca3-b3f9-46dc0148cd9f"}}) {
         nodes {
           gatsbyImageData(
-            height: 1080
-            width: 1920
+              height: 1080
             )
         }
       }

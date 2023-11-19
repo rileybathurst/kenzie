@@ -122,27 +122,50 @@
 
 /* #CAROUSEL */
 
+.carousel__wrap {
+  margin-block-end: 4lvh;
+}
+
 /* control the height with the query */
 .carousel {
   white-space: nowrap;
   overflow: hidden;
   max-width: 90vw;
+  max-height: 90vh;
   margin-inline: auto;
+  margin-block-end: 1lvh;
+  border-radius: var(--global-border-radius);
+
 
   .slider {
     display: inline-block;
     transition: var(--global-transition);
-    max-width: 80vw;
     margin-inline-end: 1rem;
+    height: 100%;
+
+    border-radius: var(--global-border-radius);
   }
 
   .gatsby-image-wrapper {
     padding: 0.25rem;
+    
+    img {
+      max-height: 10rem;
+      border-radius: var(--global-border-radius);
+
+      @media (min-width: 30rem) {
+        max-height: 20rem;
+      }
+    }
+    
+    > img {
+      box-shadow: var(--troposphere);
+    }
   }
 }
 
 .carousel__label {
-  max-width: 100vw;
+  max-width: 90vw;
   margin-inline: auto;
   width: fit-content;
   display: flex;
@@ -164,5 +187,6 @@
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
+
   }
 }

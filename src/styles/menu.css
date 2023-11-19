@@ -19,10 +19,8 @@
       backdrop-filter: blur(1rem);
 
       a {
-        color: var(--black-metal);
         width: 100%;
-        padding-top: var(--global-padding);
-        padding-bottom: var(--global-padding);
+        padding-block: var(--global-padding);
         display: block;
         text-align: center;
       }

@@ -1,0 +1,11 @@
+/* COLOR */
+
+body {
+  background: var(--kingly-cloud);
+  color: var(--black-out);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--black-out);
+    color: var(--kingly-cloud);
+  }
+}
