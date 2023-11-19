@@ -15,3 +15,9 @@ const PhotoPage = () => {
 }
 
 export default PhotoPage
+
+export const Head = () => (
+  <SEO
+    title="Gallery"
+  />
+)

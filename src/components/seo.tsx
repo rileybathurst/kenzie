@@ -13,7 +13,7 @@ export const SEO = ({
   } = useSiteMetadata()
 
   const seo = {
-    title: title,
+    title: title || SEO.title,
     description: description,
     ogImage: ogImage,
     ogImageAlt: ogImageAlt,

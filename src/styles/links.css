@@ -13,7 +13,7 @@ a:hover {
 }
 
 a:hover svg {
-  fill: var(--brilliance);
+  fill: var(--grey);
   transition: var(--global-transition);
 }
 
@@ -28,11 +28,22 @@ button {
   border-radius: var(--global-border-radius);
   font-family: var(--header-font);
   transition: var(--global-transition);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--black-metal);
+    color: var(--brilliance);
+    border-color: var(--black-out);
+  }
 }
 
 button:hover {
   background: var(--tin-soldier);
   color: var(--industrial-revolution);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--industrial-revolution);
+    color: var(--kingly-cloud);
+  }
 }
 
 .button-styles {

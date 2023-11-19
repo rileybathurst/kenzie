@@ -1,6 +1,7 @@
 /* LISTS */
 
 ul {
+  margin: 0; /* reset */
   list-style: none; /* reset */
   padding-left: 0; /* reset */
 }
@@ -34,9 +35,17 @@ ul {
 .footer-social ul {
   display: flex;
 
+  a {
+    display: block;
+  }
+
   svg {
     width: 3rem;
-    margin-right: var(--global-margin);
+    margin-inline-end: var(--global-margin);
+  }
+
+  li:last-child svg {
+    margin-inline-end: 0;
   }
 }
 
