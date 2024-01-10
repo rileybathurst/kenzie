@@ -47,6 +47,7 @@ main {
     @media (min-width: 40rem) {
       grid-row: 1;
       grid-column: 3/5;
+      place-self: start;
     }
   }
 
@@ -96,11 +97,11 @@ main {
     margin: var(--global-margin);
     margin-bottom: 0;
     border: 2px solid var(--black-metal);
-    background: var(--brilliance);
+    /* background: var(--brilliance); */
 
     @media (prefers-color-scheme: dark) {
       border: 2px solid var(--back-out);
-      background: var(--black-metal);
+      /* background: var(--black-metal); */
     }
 
     @media (min-width: 40rem) {

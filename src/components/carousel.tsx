@@ -54,14 +54,15 @@ const Carousel = () => {
   return (
     <>
       <div className="carousel__wrap">
+        <div className="carousel__highlight">{/* stay gold */}</div>
         <section
           className="carousel"
           ref={galleryRef}
         >
-          {allImageSharp.nodes.map((photos) => (
+          {allImageSharp.nodes.map((photos, index) => (
             <div
               key={photos.hash}
-              className="slider"
+              className={`slider ${index === currentIndex ? 'current' : ''}`}
               ref={useRef()}
             >
               <GatsbyImage

@@ -22,7 +22,7 @@ const IndexPage = () => {
       <Carousel />
 
       <main>
-        <h2>{useSiteMetadata().description}</h2>
+        <h2 className='highlighter'>{useSiteMetadata().description}</h2>
 
         <ProfileCraigieburn />
 

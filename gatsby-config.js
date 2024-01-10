@@ -27,7 +27,9 @@ module.exports = {
         defaultQuality: 50,
       },
     },
-    "gatsby-transformer-sharp", {
+    "gatsby-transformer-sharp",
+    // TODO: this is how Im getting the images for the slider I need to look into this more
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "images",

@@ -106,8 +106,8 @@ const Header = () => {
 
   return (
     <header className='headingStyles'>
-      <h1>
-        <Link to="/" activeClassName="dont-style-home">
+      <h1 className="">
+        <Link to="/" activeClassName="dont-style-home highlighter">
           {useSiteMetadata().title}
         </Link>
       </h1>

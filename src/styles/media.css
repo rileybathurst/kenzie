@@ -68,7 +68,14 @@
       z-index: -1;
       grid-row: 2/5;
       grid-column: 1;
-      border: 2px solid var(--black-metal);
+      /* border: 2px solid var(--black-metal); */
+
+      background-image: 
+        radial-gradient(rgba(255, 224, 0, 0.5) 15%, transparent 45%),
+        radial-gradient(rgba(255, 224, 0, 0.5) 15%, transparent 45%);
+      background-position: 0px 0px, 14px 14px;
+      background-size: 28px 28px;
+      background-color: white;
 
       @media (min-width: 40rem) {
         grid-row: 2;
@@ -99,11 +106,64 @@
 /* #CAROUSEL */
 
 .carousel__wrap {
+  display: grid;
   margin-block-end: 4lvh;
+
+  > * {
+    grid-column: 1;
+  }
+}
+
+.carousel__highlight {
+  z-index: 1;
+  position:relative;
+  left:0.5em;
+  grid-row: 1;
+  width: 50%;
+  margin-inline: auto;
+}
+
+.carousel__highlight:before{
+  content:"";
+  z-index:-1;
+  left:-0.5em;
+  top:-0.1em;
+  border-width:2rem;
+  border-style:solid;
+  border-color:rgba(255, 224, 0, 0.7);
+  position:absolute;
+  border-right-color:transparent;
+  width:100%;
+  height:1em;
+  transform:rotate(2deg);
+  opacity:0.7;
+  border-radius:50%;
+  padding:0.1em 0.25em;
+  height: 70%;
+}
+.carousel__highlight:after{
+  content:"";
+  z-index:-1;
+  left:-0.5em;
+  top:0.1em;
+  padding:0.1em 0.25em;
+  border-width:2rem;
+  border-style:solid;
+  border-color:rgb(255, 224, 0, 0.7);
+  border-left-color:transparent;
+  border-top-color:transparent;
+  position:absolute;
+  width:100%;
+  height:1em;
+  transform:rotate(-1deg);
+  opacity:0.7;
+  border-radius:50%;
+  height: 80%;
 }
 
 /* control the height with the query */
 .carousel {
+  grid-row: 1;
   white-space: nowrap;
   overflow: hidden;
   /* max-width: 90vw; */
@@ -133,14 +193,11 @@
         max-height: 20rem;
       }
     }
-    
-    > img {
-      box-shadow: var(--troposphere);
-    }
   }
 }
 
 .carousel__label {
+  grid-row: 2;
   max-width: 90vw;
   margin-inline: auto;
   width: fit-content;
@@ -173,4 +230,21 @@
       opacity: 1;
     }
   }
+}
+
+.slider .gatsby-image-wrapper {
+  filter: grayscale(100%);
+}
+
+.slider.current .gatsby-image-wrapper {
+  filter: grayscale(0%);
+}
+
+.polka {
+  background-image: 
+    radial-gradient(rgb(255, 255, 255) 30%, transparent 30%),
+    radial-gradient(rgb(255, 255, 255) 30%, transparent 30%);
+  background-position: 0px 0px, 104px 104px;
+  background-size: 208px 208px;
+  background-color: rgb(235, 255, 251);
 }

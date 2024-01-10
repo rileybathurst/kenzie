@@ -13,7 +13,7 @@ const Header = () => {
       </nav>
 
       <div className="footer-social">
-        <h4>{useSiteMetadata().title}</h4>
+        <h4 className="circle-sketch-highlight">{useSiteMetadata().title}</h4>
         <h4 className="sr-only">Social Media</h4>
         <ul>
           <li key="Instagram">
